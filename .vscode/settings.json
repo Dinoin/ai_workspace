@@ -1,0 +1,4 @@
+{
+  // 讓 GitHub Copilot 自動讀取根目錄的 AGENTS.md 作為共通開發規範
+  "chat.useAgentsMdFile": true
+}

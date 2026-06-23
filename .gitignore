@@ -1,0 +1,13 @@
+# === 子專案（皆為獨立 git repo，於各自 remote 管理，不納入本 workspace repo）===
+# TODO: 套用至實際專案時，於此列出各子專案資料夾，例如：
+# /frontend/
+# /backend/
+
+# === 個人 / 機器本地設定（不共用）===
+.claude/settings.local.json
+
+# === 作業系統 / 編輯器雜項 ===
+.DS_Store
+Thumbs.db
+*.swp
+*.code-workspace
