@@ -89,10 +89,12 @@
 始終使用繁體中文回應，並在回答時保持專業、簡潔，必要時可提供中英文對照。
 
 ## 程式碼索引 (GitNexus)
-本專案已引入 **GitNexus** 並建立索引（`.gitnexus/`），供查詢程式碼結構、呼叫關係與語意檢索。
-- **理解/定位程式碼時優先使用 GitNexus**：需釐清架構、追蹤呼叫流程、評估變更影響（blast radius）時，先查 GitNexus 再進行 grep/find 或逐檔閱讀。
-- **不主動重建索引**；索引更新由使用者決定。僅在符合下列時機時**提醒**使用者重新分析：
+**僅當 repo 根目錄存在 `.gitnexus/` 時適用**；不存在則略過本節，是否建立索引由使用者決定。
+- **理解／定位程式碼時優先使用 GitNexus**：需釐清架構、追蹤呼叫流程、評估變更影響（blast radius）時，先查 GitNexus，再進行 grep/find 或逐檔閱讀。
+- **不主動重建索引**；索引更新由使用者決定。僅在下列時機**提醒**使用者重新分析：
   - 修改 code → **不需**重新分析（日常開發直接寫）。
   - **AI 查詢結果過時**（與實際程式碼不符）→ 建議重新分析。
-  - **論述大改（如重構）** → 建議重新分析。
-- 重建索引命令（保留並更新 embeddings）：`npx gitnexus analyze --embeddings`。
+  - **架構大改（如重構）** → 建議重新分析。
+- 重建索引命令（保留並更新 embeddings、同步重生成區域 skill 檔）：`gitnexus analyze --embeddings --skills`。
+- gitnexus 會自動在 `CLAUDE.md`／`AGENTS.md` 寫入 `<!-- gitnexus:start -->` 區塊。**若專案以 `CLAUDE.md` 匯入 `AGENTS.md`，僅保留 `AGENTS.md` 內的那一份**；兩份並存會使同段內容重複載入，重新索引後若 `CLAUDE.md` 又被寫入該區塊，請手動移除。
+
