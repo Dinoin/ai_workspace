@@ -40,6 +40,7 @@
 7. **不主動部署至遠端**；允許本地操作（docker 重啟、打包等）。
 8. 不主動執行**程式碼格式化工具**（prettier、black 等）。
 9. **變更程式碼需同步更新相關文件**，並即時更新 `docs/pending_tasks-list.md` 待辦清單。
+    - **文件內勿使用對話內臨時序號標註需求**（如「使用者需求 #3」）：此類編號脫離提出當下的對話即無法回溯（需求原文未保留），屬假精確的雜訊。改用可回溯的錨點——**階段標記**（如 `P2-f`，指向待辦、可追進度）＋必要時於彙總處標**一個定案日期**（逐次變更時間 git 已記錄，不必逐行標）。文件表格內的「工作項目列號」屬合法表內引用，不在此限。
 10. 文件中**禁止寫入敏感資訊**（密碼、Token、API Key 等）。
 11. **以程式碼為優先判斷依據**；除非接獲指示，禁止以文件內容（如 README 等 md 檔）作為判斷依據。
 12. 提供**完整的錯誤處理機制**。
@@ -84,6 +85,26 @@
 ## 終端機規範 (Terminal Guidelines)
 - **非互動式優先**：加必要參數跳過互動詢問，避免掛起（如 `uv run`、`npm install`）。AI 常無法識別或回應互動式指令，請避免使用互動式指令（如 `pipenv shell`、`python help()` 等）。
 - **避免進入子 Shell**：禁止 `pipenv shell`、`python` REPL 等改變終端狀態的操作。
+
+## Git Commit 規範
+- 僅在使用者明確要求時，才可執行 git add、commit、push 等 Git 寫入操作。
+- Commit message 採用 Conventional Commits：
+  ```
+	<type>(<scope>): <description>
+	/*空一行*/
+	<body>
+	/*空一行*/
+	<Footer>
+  ```
+- `type` 使用：`feat`、`fix`、`docs`、`refactor`、`style`、`perf`、`test`、`chore`、`build`、`ci`、`revert`。
+- `scope` 使用受影響的業務模組，如 `auth`、`notification`、`extension`；若為全域性或無適當模組可省略。
+- `description` 使用英文、小寫、祈使語氣，不加句點，建議不超過 72 字元。
+- `body` 視需要使用中文條列說明變更內容；若含多個條列項，必須以實際換行字元分隔各項，不得在 commit message 中使用字面量 `\n`。
+- `Footer` 為選填，格式採 KEY: value；重大變更使用 BREAKING CHANGE: <說明>。
+- 破壞性變更於 scope 後加 `!`，並在 body 或 footer 註明 `BREAKING CHANGE:`。
+- 一次 commit 應只包含一個可獨立驗證、可安全回退的變更單位；程式碼、必要測試與同步文件應一併提交。
+- Commit 前必須執行 GitNexus `detect_changes()`，確認異動範圍與預期一致。
+- CI/CD 設定、建置流程或部署自動化異動使用 `ci:` 或 `build:`；相依套件與雜項維護使用 `chore:`。
 
 ## 語言 (Language)
 始終使用繁體中文回應，並在回答時保持專業、簡潔，必要時可提供中英文對照。
