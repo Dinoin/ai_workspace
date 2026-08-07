@@ -1,0 +1,4 @@
+interface:
+  display_name: "共用資料單一來源"
+  short_description: "管理跨服務共用資料的單一來源與前後端同步驗證作業流程"
+  default_prompt: "請檢查這項共用資料應由哪一端作為唯一來源。"
