@@ -57,10 +57,6 @@
 - Schema 採 Pydantic v2 風格（`model_config`，避免 `class Config`）。
 - API 回應統一 `{ data, message, code }`；時間戳記 UTC。
 
-### Database
-- 所有表格與欄位必須加 **COMMENT** 說明（用途、業務邏輯、欄位關聯）。
-- 欄位排序遵循「核心資料優先、輔助資料次之」：`id`/PK 置最前，建立/更新時間置最後。
-
 ### 通用編碼標準
 - 程式碼**註解使用繁體中文**。
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "資料庫結構慣例"
+  short_description: "建立或修改資料庫結構時驗證註解欄位排序與遷移安全性作業流程"
+  default_prompt: "請依資料庫慣例檢查這次資料表或欄位變更。"
