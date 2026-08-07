@@ -43,8 +43,7 @@
 10. **以程式碼為優先判斷依據**；除非接獲指示，禁止以文件內容（如 README 等 md 檔）作為判斷依據。
 11. 提供**完整的錯誤處理機制**。
 12. 不確定或不清楚時**主動提出詢問**。
-13. API 使用 **GET、POST、PATCH、DELETE** 等標準 HTTP 方法，並遵循 **RESTful** 設計原則。
-14. 每次回應皆需包含「**總結**」與「**後續步驟建議**」。
+13. 每次回應皆需包含「**總結**」與「**後續步驟建議**」。
 
 ## 編碼慣例 (Conventions)
 
@@ -52,10 +51,7 @@
 - 命名：`camelCase`（變數/函式）、`PascalCase`（元件/型別/介面）；strict 模式，避免 `any`。
 
 ### Python
-- 命名：`snake_case`（變數/函式/模組）、`PascalCase`（類別）；所有函式須加 type hints。
-- 資料庫操作一律 `async/await`（async SQLAlchemy session）。
-- Schema 採 Pydantic v2 風格（`model_config`，避免 `class Config`）。
-- API 回應統一 `{ data, message, code }`；時間戳記 UTC。
+- 命名：`snake_case`（變數/函式/模組）、`PascalCase`（類別）。
 
 ### 通用編碼標準
 - 程式碼**註解使用繁體中文**。
