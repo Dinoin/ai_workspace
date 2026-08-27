@@ -115,7 +115,6 @@
 - **不主動重建索引**；索引更新由使用者決定。僅在下列時機**提醒**使用者重新分析：
   - 修改 code → **不需**重新分析（日常開發直接寫）。
   - **AI 查詢結果過時**（與實際程式碼不符）→ 建議重新分析。
-  - **架構大改（如重構）** → 建議重新分析。
-- 重建索引命令（保留並更新 embeddings、同步重生成區域 skill 檔）：`gitnexus analyze --embeddings --skills`。
-- gitnexus 會自動在 `CLAUDE.md`／`AGENTS.md` 寫入 `<!-- gitnexus:start -->` 區塊。**若專案以 `CLAUDE.md` 匯入 `AGENTS.md`，僅保留 `AGENTS.md` 內的那一份**；兩份並存會使同段內容重複載入，重新索引後若 `CLAUDE.md` 又被寫入該區塊，請手動移除。
+  - **論述大改（如重構）** → 建議重新分析。
+- 重建索引請執行 `scripts/gitnexus-refresh.sh`（Windows 用 `scripts\gitnexus-refresh.bat`），會自動執行 `npx gitnexus analyze --embeddings` 並清除因此重複寫入 CLAUDE.md 的 GitNexus 區塊（該內容已由 CLAUDE.md `@AGENTS.md` 匯入涵蓋，重複寫入會違反本檔的 SSOT 規則）。
 
