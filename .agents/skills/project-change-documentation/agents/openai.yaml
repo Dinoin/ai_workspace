@@ -1,0 +1,4 @@
+interface:
+  display_name: "同步專案文件"
+  short_description: "依程式變更同步文件、待辦與命名檢核"
+  default_prompt: "請依專案規範檢查此次變更需要同步哪些文件。"

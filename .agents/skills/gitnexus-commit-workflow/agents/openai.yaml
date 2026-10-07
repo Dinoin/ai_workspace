@@ -1,0 +1,4 @@
+interface:
+  display_name: "GitNexus 提交流程"
+  short_description: "取得明確授權後檢查變更影響並建立可驗證 Conventional Commit 流程"
+  default_prompt: "請在確認授權後檢查變更範圍並準備一個獨立提交。"

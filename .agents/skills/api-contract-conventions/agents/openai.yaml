@@ -1,0 +1,4 @@
+interface:
+  display_name: "API 契約慣例"
+  short_description: "建立或修改 Python REST API 時驗證契約非同步存取與回應格式流程"
+  default_prompt: "請依專案 API 契約慣例檢查這次端點變更。"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "回饋回歸稽核"
+  short_description: "針對問題回饋擴大檢查同類缺陷並補足回歸驗證作業流程"
+  default_prompt: "請依這個問題回饋搜尋同類缺陷並規劃回歸驗證。"
